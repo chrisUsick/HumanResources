@@ -32,6 +32,9 @@ namespace HumanResources.Models
         [DisplayFormat(DataFormatString="{0:d}")]
         [DataType(DataType.DateTime, ErrorMessage="valid date")]
         public DateTime HireDate { get; set; }
+
+        [DisplayFormat(DataFormatString="{0,10:C}")]
+        public double Salary { get; set; }
         
         public virtual Department Department { get; set; }
     }

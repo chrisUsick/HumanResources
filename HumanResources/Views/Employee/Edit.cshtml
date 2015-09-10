@@ -46,6 +46,14 @@
             @Html.ValidationMessageFor(model => model.HireDate)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Salary)
+        </div>
+        <div class="editor-field" dir="rtl" align="left">
+            @Html.EditorFor(model => model.Salary)
+            @Html.ValidationMessageFor(model => model.Salary)
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>

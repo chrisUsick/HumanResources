@@ -169,6 +169,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201509101306453_InitialCreate.cs" />
+    <Compile Include="Migrations\201509101306453_InitialCreate.Designer.cs">
+      <DependentUpon>201509101306453_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509101431304_inital.cs" />
+    <Compile Include="Migrations\201509101431304_inital.Designer.cs">
+      <DependentUpon>201509101431304_inital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\HumanResourceModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -320,6 +329,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Employee\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201509101306453_InitialCreate.resx">
+      <DependentUpon>201509101306453_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509101431304_inital.resx">
+      <DependentUpon>201509101431304_inital.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
