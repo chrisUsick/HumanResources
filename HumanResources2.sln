@@ -25,6 +25,28 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HRWebApp", "HRWebApp\", "{F
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HRWebService", "HRWebService\", "{3281E7CA-151F-4B19-BD87-AB85A0CE4CCE}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{F8DD3FE1-FC43-411E-A618-61EE473727DD}|HumanResources.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/HRWebService"
+		Debug.AspNetCompiler.PhysicalPath = "HRWebService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\HRWebService\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/HRWebService"
+		Release.AspNetCompiler.PhysicalPath = "HRWebService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\HRWebService\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "49232"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +61,10 @@ Global
 		{F769C686-2FDB-4914-AF04-BAC39908643F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F769C686-2FDB-4914-AF04-BAC39908643F}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{F769C686-2FDB-4914-AF04-BAC39908643F}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{3281E7CA-151F-4B19-BD87-AB85A0CE4CCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3281E7CA-151F-4B19-BD87-AB85A0CE4CCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3281E7CA-151F-4B19-BD87-AB85A0CE4CCE}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{3281E7CA-151F-4B19-BD87-AB85A0CE4CCE}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

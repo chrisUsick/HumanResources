@@ -18,13 +18,19 @@ public partial class wfEmployee : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         
+        // only perform on page load
         if (!Page.IsPostBack)
         {
+            // catch any database exceptions
             try
             {
                 // table databinding
                 IQueryable<Employee> employees = db.Employees;
+                
+                // linq query and adding datasource
                 gvEmployees.DataSource = employees.ToList();
+
+                // apply the databinding
                 gvEmployees.DataBind();
 
                 //set the login id
@@ -32,8 +38,10 @@ public partial class wfEmployee : System.Web.UI.Page
             }
             catch (Exception)
             {
+                // display messagebox
                 string title = "My box title goes here";
                 string text = "Do you want to Update this record?";
+                // use my custom messagebox class
                 MessageBox messageBox = new MessageBox(text, title, MessageBox.MessageBoxIcons.Question, MessageBox.MessageBoxButtons.YesOrNo, MessageBox.MessageBoxStyle.StyleA);
                 messageBox.SuccessEvent.Add("YesModClick");
 
@@ -42,6 +50,12 @@ public partial class wfEmployee : System.Web.UI.Page
             }
         }
     }
+    /// <summary>
+    /// actions to perform on the messagebox button click
+    /// </summary>
+    /// <param name="sender">object that triggered the event.</param>
+    /// <param name="e">event</param>
+    /// <returns>message based on the output of the method</returns>
     [WebMethod]
     public static string YesModClick(object sender, EventArgs e)
     {

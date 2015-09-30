@@ -13,7 +13,9 @@
         <asp:BoundField DataField="LastName" HeaderText="Last Name" />
         <asp:BoundField DataField="HireDate" HeaderText="Hire Date" />
         <asp:BoundField DataField="Salary" DataFormatString="{0:c}" 
-            HeaderText="Salary" />
+            HeaderText="Salary" >
+        <ItemStyle HorizontalAlign="Right" />
+        </asp:BoundField>
     </Columns>
 </asp:GridView>
 <asp:Literal ID="PopupBox" runat="server"></asp:Literal>
