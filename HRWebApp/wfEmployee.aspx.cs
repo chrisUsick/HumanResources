@@ -10,13 +10,17 @@ using System.Web.Services;
 
 public partial class wfEmployee : System.Web.UI.Page
 {
+    // database access
     private HumanResourcesContext db = new HumanResourcesContext();
 
+    // keep the employees array global because this is updated when db.SaveChanges() is called
+    private IQueryable<Employee> employees;
     /// <summary>
     /// handle load event
     /// </summary>
     protected void Page_Load(object sender, EventArgs e)
     {
+        employees = db.Employees;
         
         // only perform on page load
         if (!Page.IsPostBack)
@@ -24,14 +28,9 @@ public partial class wfEmployee : System.Web.UI.Page
             // catch any database exceptions
             try
             {
-                // table databinding
-                IQueryable<Employee> employees = db.Employees;
-                
-                // linq query and adding datasource
-                gvEmployees.DataSource = employees.ToList();
 
-                // apply the databinding
-                gvEmployees.DataBind();
+                // table databinding
+                refreshDataBinding();
 
                 //set the login id
                 lblUsername.Text = Page.User.Identity.Name;
@@ -64,4 +63,31 @@ public partial class wfEmployee : System.Web.UI.Page
         return strToRtn;
     }
 
+    /// <summary>
+    /// handle the selected index change event on gvEmployees
+    /// </summary>
+    protected void gvEmployees_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        // get employeeId
+        int employeeId = int.Parse(gvEmployees.Rows[gvEmployees.SelectedIndex].Cells[1].Text);
+
+        // create a service and update salary
+        SalaryService.ISalaryAdjustment service = new SalaryService.SalaryAdjustmentClient();
+        service.UpdateSalary(employeeId);
+
+        // update the table
+        refreshDataBinding();
+    }
+
+    /// <summary>
+    /// refresh or set the databinding
+    /// </summary>
+    private void refreshDataBinding()
+    {
+        // linq query and adding datasource
+        gvEmployees.DataSource = employees.ToList();
+
+        // apply the databinding
+        gvEmployees.DataBind();
+    }
 }

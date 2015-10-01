@@ -6,8 +6,12 @@ using System.ServiceModel;
 using System.Text;
 using HumanResources.Models;
 using System.Data.Linq;
+using System.ServiceModel.Activation;
 
-// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "SalaryAdjustment" in code, svc and config file together.
+/// <summary>
+/// SalaryAdjustment web service
+/// </summary>
+[AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
 public class SalaryAdjustment : ISalaryAdjustment
 {
     private HumanResourcesContext db = new HumanResourcesContext();
@@ -18,23 +22,29 @@ public class SalaryAdjustment : ISalaryAdjustment
     /// <param name="employeeId">id of employee</param>
     public void UpdateSalary(int employeeId)
     {
+        // get the employee
         Employee employee = db.Employees.Find(employeeId);
+
         double adjustmentRate = 0;
 
-        TimeSpan yearsEmployeed = DateTime.Now - employee.HireDate;
-        if (yearsEmployeed > new TimeSpan(365 * 10, 0, 0, 0, 0))
+        // time stan since employee has worked for the company
+        TimeSpan yearsEmployed = DateTime.Now - employee.HireDate;
+
+        // set adjustment rate
+        if (yearsEmployed > new TimeSpan(365 * 10, 0, 0, 0, 0))
         {
             adjustmentRate = 1.25;
         }
-        else if (yearsEmployeed > new TimeSpan(365 * 5, 0, 0, 0))
+        else if (yearsEmployed > new TimeSpan(365 * 5, 0, 0, 0))
         {
             adjustmentRate = 1.1;
         }
         else
         {
-            adjustmentRate = 0.03;
+            adjustmentRate = 1.03;
         }
 
+        // update salary and commit changes
         employee.Salary *= adjustmentRate;
         db.SaveChanges();
     }

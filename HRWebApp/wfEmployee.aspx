@@ -6,7 +6,8 @@
     <uc1:MessageBoxUserControl ID="MessageBoxUserControl1" runat="server" />
     <asp:Label ID="lblUsername" runat="server" Text="Label"></asp:Label>
 <asp:GridView ID="gvEmployees" runat="server" AutoGenerateColumns="False" 
-    AutoGenerateSelectButton="True">
+    AutoGenerateSelectButton="True" 
+        onselectedindexchanged="gvEmployees_SelectedIndexChanged">
     <Columns>
         <asp:BoundField DataField="EmployeeID" HeaderText="Employee" />
         <asp:BoundField HeaderText="First Name" DataField="FirstName" />

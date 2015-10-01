@@ -24,6 +24,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HRWebApp", "HRWebApp\", "{F
 		VWDPort = "49718"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+	ProjectSection(ProjectDependencies) = postProject
+		{3281E7CA-151F-4B19-BD87-AB85A0CE4CCE} = {3281E7CA-151F-4B19-BD87-AB85A0CE4CCE}
+	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HRWebService", "HRWebService\", "{3281E7CA-151F-4B19-BD87-AB85A0CE4CCE}"
 	ProjectSection(WebsiteProperties) = preProject
